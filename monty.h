@@ -1,6 +1,10 @@
 #ifndef _MAIN_H
 #define _MAIN_H
 
+#include <stdio.h>
+#include <stdlib.h>
+
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -33,6 +37,7 @@ typedef struct instruction_s
 } instruction_t;
 
 
-
+void error_arguments(void);
+void open_error(char **argv);
 
 #endif
