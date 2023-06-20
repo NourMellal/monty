@@ -1,6 +1,7 @@
 #ifndef _MAIN_H
 #define _MAIN_H
 
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -44,14 +45,14 @@ typedef struct instruction_s
 
 /* error_handler functions */
 void error_arguments(void);
-void open_error(char **argv);
+void open_error(char **);
 void invalidInstruction_error(char *invalidInctruvtion, uint line);
 
 /*executed function */
 int open_and_read(char **argv);
 
 /*opcodes*/
-void (get_operation_code(char *token)) (stack_t **top, uint line);
+void (*get_op_code(char *token, uint line)) (stack_t **, uint);
 
  /* Stack */
 void push_stack(stack_t **top, uint line_number);

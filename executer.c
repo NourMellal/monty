@@ -2,9 +2,10 @@
 
 extern int number;
 
-int open_and_red(char **argv)
+int open_and_read(char **argv)
 {
-	void (*p_func)(char *, int);
+	void (*p_func)(stack_t **, uint);
+
 	FILE *fp;
 	char *lineBuf = NULL, *token = NULL, *token2 = NULL;
 	size_t num_ch_readed = 0;
@@ -32,11 +33,11 @@ int open_and_red(char **argv)
 	}
 /* p_func will recieve the function to execute */
 
-	p_func = get_operation_code(token, line_counter);
+	p_func = get_op_code(token, line_counter);
 
 /* p_func takes the place of the function to execute: push, pall, etc */
 	p_func(top, line_counter);
 
-	pall_stack(top, line_counter)
+	pall_stack(top, line_counter);
 	return 0;
 }

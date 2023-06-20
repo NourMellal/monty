@@ -6,10 +6,11 @@ void push_stack(stack_t **top, uint line_number)
 {
 	stack_t	*NewNode;
 
+	(void)line_number;
 	NewNode = malloc(sizeof(stack_t));
 
 	if (NewNode == NULL)
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 
 	NewNode->n = number;
 	NewNode->prev = NULL;

@@ -3,8 +3,9 @@
 void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 {
 	int i;
-	instruction_t operations[] = {
+	instruction_t operation[] = {
 		{"push", push_stack},
+		{"pall", pall_stack},
 		{NULL, NULL}
 	};
 	for (i = 0; operation[i].opcode != NULL; i++)
@@ -15,4 +16,5 @@ void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 		}
 	}
 	invalidInstruction_error(token, line);
+	return NULL;
 }
