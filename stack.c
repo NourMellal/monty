@@ -1,15 +1,17 @@
 #include "monty.h"
 
-stack_t *push_stack(stack_t **top, const int n)
+extern int number;
+
+void *push_stack(stack_t **top, uint line_number)
 {
 	stack_t	*NewNode;
 
 	NewNode = malloc(sizeof(stack_t));
 
 	if (NewNode == NULL)
-		return (NULL);
+		exit (EXIT_FAILURE);
 
-	NewNode->n = n;
+	NewNode->n = number;
 	NewNode->prev = NULL;
 
 	/* Validate if empty list*/
@@ -17,12 +19,10 @@ stack_t *push_stack(stack_t **top, const int n)
 	{
 		NewNode->next = NULL;
 		*top = NewNode;
-		return (NewNode);
 	}
 	/* if is not empty list */
 	NewNode->next = *top;
 	(*top)->prev = NewNode;
 	*top = NewNode;
 
-	return (NewNode);
 }

@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+extern int n;
+
 #define uint unsigned int
 
 
@@ -46,13 +48,13 @@ void open_error(char **argv);
 void invalidInstruction_error(char *invalidInctruvtion, uint line);
 
 /*executed function */
-void open_and_read(char **argv);
+int open_and_read(char **argv);
 
 /*opcodes*/
 void (get_operation_code(char *token)) (stack_t **top, uint line);
 
  /* Stack */
- stack_t *push_stack(stack_t **top, const int n);
+ void *push_stack(stack_t **top, uint line_number);
 
 
 #endif /* _MONTY_H_ */
