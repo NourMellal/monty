@@ -3,6 +3,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
+#define uint unsigned int
+
 
 
 /**
@@ -36,8 +40,10 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
+/* error_handler functions */
 void error_arguments(void);
 void open_error(char **argv);
+void invalidInstruction_error(char *invalidInctruvtion, uint line);
+
 
 #endif
