@@ -54,7 +54,8 @@ int open_and_read(char **argv);
 void (get_operation_code(char *token)) (stack_t **top, uint line);
 
  /* Stack */
- void *push_stack(stack_t **top, uint line_number);
+void push_stack(stack_t **top, uint line_number);
+void pall_stack(stack_t **top, uint line_number);
 
 
 #endif /* _MONTY_H_ */

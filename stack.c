@@ -2,7 +2,7 @@
 
 extern int number;
 
-void *push_stack(stack_t **top, uint line_number)
+void push_stack(stack_t **top, uint line_number)
 {
 	stack_t	*NewNode;
 
@@ -24,5 +24,17 @@ void *push_stack(stack_t **top, uint line_number)
 	NewNode->next = *top;
 	(*top)->prev = NewNode;
 	*top = NewNode;
+}
 
+void pall_stack(stack_t **top, uint line_number)
+{
+	stack_t *tmp = *top;
+
+	(void)line_number;
+
+	while (tmp != NULL)
+	{
+		printf("%d\n", tmp->n);
+		tmp = tmp->next;
+	}
 }
