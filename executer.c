@@ -2,15 +2,17 @@
 
 extern int number;
 
-int open_and_read(char **argv)
+void open_and_read(char **argv)
 {
+	/* prototype from struct instruct */
 	void (*p_func)(stack_t **, uint);
 
 	FILE *fp;
-	char *lineBuf = NULL, *token = NULL, *token2 = NULL;
-	size_t num_ch_readed = 0;
+	char *lineBuf = NULL, *token = NULL, command[1024];
+	size_t len = 0;
+	size_t line_size;
 	uint line_counter = 1;
-	stack_t **top = NULL;
+	stack_t *top = NULL;
 
 	fp = fopen(argv[1], "r");
 
@@ -18,26 +20,22 @@ int open_and_read(char **argv)
 		open_error(argv);
 
 	/* get number of lines */
-	while(getline(&lineBuf, &num_ch_readed, fp) != EOF)
+	while((line_size = getline(&lineBuf, &len, fp)) != EOF)
 	{
 		token = strtok(lineBuf, " ");
+		strcpy(command, token);
 		if (strcmp(token, "push") == 0)
 		{
-			token2 = strtok(NULL, " ");
-			number = atoi(token2);
-
-		return number;
+			token = strtok(NULL, " ");
+			number = atoi(token);
+	/* p_func will receive the function to execute */
+	p_func = get_op_code(command, line_counter);
+	/* p_func takes place of the function to execute: push, pall, etc*/
+	p_func(&top, line_counter);
 		}
 
 		line_counter++;
 	}
-/* p_func will recieve the function to execute */
 
-	p_func = get_op_code(token, line_counter);
-
-/* p_func takes the place of the function to execute: push, pall, etc */
-	p_func(top, line_counter);
-
-	pall_stack(top, line_counter);
-	return 0;
+	/*pall_stack(top, line_counter);*/
 }

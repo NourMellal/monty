@@ -49,7 +49,7 @@ void open_error(char **);
 void invalidInstruction_error(char *invalidInctruvtion, uint line);
 
 /*executed function */
-int open_and_read(char **argv);
+void open_and_read(char **argv);
 
 /*opcodes*/
 void (*get_op_code(char *token, uint line)) (stack_t **, uint);
