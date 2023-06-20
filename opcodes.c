@@ -1,14 +1,14 @@
 #include "monty.h"
 
-int (get_operation_code(char *token)) (stack_t **top, uint line)
+void (get_operation_code(char *token)) (stack_t **top, uint line)
 {
 	int i;
 	instruction_t operations[] = {
-		{"push", push},
+		{"push", push_stack},
 		{"pall", pall},
 		{NULL, NULL}
 	};
-	for (i = 0; operation[i].opcode != NULL; i++)
+	for (i = 0; operations[i].opcode != NULL; i++)
 	{
 		if (strcmp(token, operation[i].opcode) == 0)
 		{
