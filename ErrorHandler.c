@@ -19,3 +19,9 @@ void invalidInstruction_error(char *invalidInctruction, uint line)
 	fprintf(stderr, "L%u: unknown instruction %s\n", line, invalidInctruction);
 	exit(EXIT_FAILURE);
 }
+
+void not_int_err(uint line)
+{
+	fprintf(stderr, "L%lu: usage: push integern\n", line);
+	exit(EXIT_FAILURE);
+}

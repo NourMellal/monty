@@ -26,7 +26,9 @@ void open_and_read(char **argv)
 		strcpy(command, token);
 		if (strcmp(token, "push") == 0)
 		{
-			token = strtok(NULL, " ");
+			token = strtok(NULL, "\n\t\r ");
+			if (token == NULL || is_number(token) == -1)
+				not_int_err(line_counter);
 			number = atoi(token);
 			/* p_func will receive the function to execute */
 			p_func = get_op_code(command, line_counter);
@@ -41,7 +43,21 @@ void open_and_read(char **argv)
 		line_counter++;
 	}
 	fclose(fp);
-
 	if (buf != NULL)
 		free(buf);
+}
+
+int is_number(char *token)
+{
+	int i;
+
+	if (token == NULL)
+		return (-1);
+
+	for (i = 0; token[i] != '\0'; i++)
+	{
+		if (token[i] != '-' && isdigit(token[i]) == 0)
+			return (-1);
+	}
+	return (1);
 }

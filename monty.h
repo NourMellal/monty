@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 extern int n;
 
@@ -47,9 +48,11 @@ typedef struct instruction_s
 void error_arguments(void);
 void open_error(char **);
 void invalidInstruction_error(char *invalidInctruvtion, uint line);
+void not_int_err(uint line);
 
 /*executed function */
 void open_and_read(char **argv);
+int is_number(char *token);
 
 /*opcodes*/
 void (*get_op_code(char *token, uint line)) (stack_t **, uint);
