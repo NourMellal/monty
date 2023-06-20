@@ -20,7 +20,7 @@ void open_and_read(char **argv)
 		open_error(argv);
 
 	/* get number of lines */
-	while((line_size = getline(&buf, &len, fp)) != EOF)
+	while ((line_size = getline(&buf, &len, fp)) != EOF)
 	{
 		token = strtok(buf, "\n\t\r ");
 		strcpy(command, token);

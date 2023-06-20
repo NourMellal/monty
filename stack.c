@@ -10,7 +10,7 @@ void push_stack(stack_t **top, uint line_number)
 	NewNode = malloc(sizeof(stack_t));
 
 	if (NewNode == NULL)
-		exit(EXIT_FAILURE);
+		malloc_error();
 
 	NewNode->n = number;
 	NewNode->prev = NULL;
