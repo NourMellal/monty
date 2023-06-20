@@ -45,5 +45,7 @@ void error_arguments(void);
 void open_error(char **argv);
 void invalidInstruction_error(char *invalidInctruvtion, uint line);
 
+/*executed function */
+void open_and_read(**argv);
 
 #endif
