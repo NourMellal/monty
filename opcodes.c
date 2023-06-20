@@ -16,5 +16,5 @@ void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 		}
 	}
 	invalidInstruction_error(token, line);
-	return NULL;
+	return (NULL);
 }

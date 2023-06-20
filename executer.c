@@ -22,20 +22,22 @@ void open_and_read(char **argv)
 	/* get number of lines */
 	while((line_size = getline(&lineBuf, &len, fp)) != EOF)
 	{
-		token = strtok(lineBuf, " ");
+		token = strtok(lineBuf, "\n\t\r ");
 		strcpy(command, token);
 		if (strcmp(token, "push") == 0)
 		{
 			token = strtok(NULL, " ");
 			number = atoi(token);
-	/* p_func will receive the function to execute */
-	p_func = get_op_code(command, line_counter);
-	/* p_func takes place of the function to execute: push, pall, etc*/
-	p_func(&top, line_counter);
+			/* p_func will receive the function to execute */
+			p_func = get_op_code(command, line_counter);
+			/* p_func takes place of the function to execute: push, pall, etc*/
+			p_func(&top, line_counter);
 		}
-
+		else
+		{
+			p_func = get_op_code(token, line_counter);
+			p_func(&top, line_counter);
+		}
 		line_counter++;
 	}
-
-	pall_stack(top, line_counter);
 }

@@ -15,16 +15,19 @@ void push_stack(stack_t **top, uint line_number)
 	NewNode->n = number;
 	NewNode->prev = NULL;
 
-	/* Validate if empty list*/
-	if (*top == NULL)
+
+	if (*top == NULL) /* Validate if empty list*/
 	{
 		NewNode->next = NULL;
 		*top = NewNode;
 	}
-	/* if is not empty list */
-	NewNode->next = *top;
-	(*top)->prev = NewNode;
-	*top = NewNode;
+	else /* if is not empty list */
+	{
+		NewNode->next = *top;
+		(*top)->prev = NewNode;
+		*top = NewNode;
+	}
+
 }
 
 void pall_stack(stack_t **top, uint line_number)
