@@ -8,7 +8,7 @@ void open_and_read(char **argv)
 	void (*p_func)(stack_t **, uint);
 
 	FILE *fp;
-	char *lineBuf = NULL, *token = NULL, command[1024];
+	char *buf = NULL, *token = NULL, command[1024];
 	size_t len = 0;
 	size_t line_size;
 	uint line_counter = 1;
@@ -20,9 +20,9 @@ void open_and_read(char **argv)
 		open_error(argv);
 
 	/* get number of lines */
-	while((line_size = getline(&lineBuf, &len, fp)) != EOF)
+	while((line_size = getline(&buf, &len, fp)) != EOF)
 	{
-		token = strtok(lineBuf, "\n\t\r ");
+		token = strtok(buf, "\n\t\r ");
 		strcpy(command, token);
 		if (strcmp(token, "push") == 0)
 		{
@@ -40,4 +40,8 @@ void open_and_read(char **argv)
 		}
 		line_counter++;
 	}
+	fclose(fp);
+
+	if (buf != NULL)
+		free(buf);
 }

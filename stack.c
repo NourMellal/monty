@@ -42,3 +42,19 @@ void pall_stack(stack_t **top, uint line_number)
 		tmp = tmp->next;
 	}
 }
+
+void free_stack(stack_t *top)
+{
+	stack_t *temp;
+
+	if (top == NULL)
+		return;
+
+	while (top != NULL)
+	{
+		temp = top;
+		top = top->next;
+		free(temp);
+	}
+
+}
