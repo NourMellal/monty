@@ -37,5 +37,5 @@ void open_and_read(char **argv)
 		line_counter++;
 	}
 
-	/*pall_stack(top, line_counter);*/
+	pall_stack(top, line_counter);
 }
