@@ -1,6 +1,6 @@
 #include "monty.h"
 
-stack_t *push(stack_t **top, const int n)
+stack_t *push_stack(stack_t **top, const int n)
 {
 	stack_t	*NewNode;
 
