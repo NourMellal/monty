@@ -46,6 +46,13 @@ void open_error(char **argv);
 void invalidInstruction_error(char *invalidInctruvtion, uint line);
 
 /*executed function */
-void open_and_read(**argv);
+void open_and_read(char **argv);
 
-#endif
+/*opcodes*/
+void (get_operation_code(char *token)) (stack_t **top, uint line);
+
+ /* Stack */
+ stack_t *push_stack(stack_t **top, const int n);
+
+
+#endif /* _MONTY_H_ */
