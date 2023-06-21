@@ -55,6 +55,7 @@ void malloc_error(void);
 void pint_error(uint line);
 void pop_error(uint line);
 void swap_error(uint line);
+void add_error(uint line);
 
 /*executed function */
 void open_and_read(char **argv);
@@ -73,5 +74,6 @@ void pop_stack(stack_t **top, uint line_number);
 
 /* stack operations */
 void _swap(stack_t**top, uint line);
+void _add(stack_t **top, uint line_number);
 
 #endif /* _MONTY_H_ */
