@@ -68,6 +68,7 @@ void sub_error(uint line);
 
 /*executed function */
 void open_and_read(char **argv);
+int is_comment(char *token, int line_counter);
 int is_number(char *token);
 
 /*opcodes*/

@@ -23,14 +23,16 @@ void open_and_read(char **argv)
 	while ((line_size = getline(&buf, &len, fp)) != EOF)
 	{
 		token = strtok(buf, "\n\t\r ");
+		if (token == NULL)
+			continue;
 		strcpy(command, token);
-
+		if (is_comment(token, line_counter) == 1)
+			continue;
 		if (strcmp(token, "push") == 0)
 		{
 			token = strtok(NULL, "\n\t\r ");
 			if (token == NULL || is_number(token) == -1)
 				not_int_err(line_counter);
-
 			number = atoi(token);
 			/* p_func will receive the function to execute */
 			p_func = get_op_code(command, line_counter);
@@ -70,4 +72,21 @@ int is_number(char *token)
 	}
 
 	return (1);
+}
+
+/**
+ * is_comment - Checks if a token is a comment.
+ * @token: The token to check.
+ * @line_counter: The current line counter.
+ *
+ * Return: 1 if the token is a comment, -1 otherwise.
+ */
+int is_comment(char *token, int line_counter)
+{
+	if (token == NULL || token[0] == '#')
+	{
+		line_counter++;
+		return (1);
+	}
+	return (-1);
 }
