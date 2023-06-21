@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int number;
+extern int number;
 
 /**
  * open_and_read - Opens and reads the Monty file, executing the commands.
