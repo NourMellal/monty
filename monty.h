@@ -1,6 +1,7 @@
 #ifndef _MAIN_H
 #define _MAIN_H
 
+#define _POSIX_C_SOURCE 200809L
 #define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
@@ -75,5 +76,7 @@ void pop_stack(stack_t **top, uint line_number);
 /* stack operations */
 void _swap(stack_t**top, uint line);
 void _add(stack_t **top, uint line_number);
+void _sub(stack_t **top, uint line_number);
+void sub_error(uint line);
 
 #endif /* _MONTY_H_ */

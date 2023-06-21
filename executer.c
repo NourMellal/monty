@@ -43,6 +43,7 @@ void open_and_read(char **argv)
 	fclose(fp);
 	if (buf != NULL)
 		free(buf);
+	free_stack(top);
 }
 
 int is_number(char *token)

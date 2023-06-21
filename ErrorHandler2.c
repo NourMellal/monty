@@ -23,3 +23,9 @@ void add_error(uint line)
 	fprintf(stderr, "L%u: can't add, stack too short\n", line);
 	exit(EXIT_FAILURE);
 }
+
+void sub_error(uint line)
+{
+	fprintf(stderr, "L%u: can't add, stack too short\n", line);
+	exit(EXIT_FAILURE);
+}
