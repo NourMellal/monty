@@ -56,5 +56,16 @@ void free_stack(stack_t *top)
 		top = top->next;
 		free(temp);
 	}
+	free(top);
+}
 
+void pint_stack(stack_t **top, uint line_number)
+{
+	stack_t *tmp = *top;
+
+	if (tmp != NULL)
+	{
+		printf("%d\n", tmp->n);
+	}
+	pint_error(line_number);
 }

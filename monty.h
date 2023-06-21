@@ -51,16 +51,22 @@ void invalidInstruction_error(char *invalidInctruvtion, uint line);
 void not_int_err(uint line);
 void malloc_error(void);
 
+/* error_handler2 functions */
+void pint_error(uint line);
+
 /*executed function */
 void open_and_read(char **argv);
 int is_number(char *token);
 
 /*opcodes*/
 void (*get_op_code(char *token, uint line)) (stack_t **, uint);
+void _nop(stack_t **top, uint line);
 
  /* Stack */
 void push_stack(stack_t **top, uint line_number);
 void pall_stack(stack_t **top, uint line_number);
+void free_stack(stack_t *top);
+void pint_stack(stack_t **top, uint line_number);
 
 
 #endif /* _MONTY_H_ */
