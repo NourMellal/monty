@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/imadoulasri/Desktop/alx_projects/monty",
+      "program": "/Users/imadoulasri/Desktop/alx_projects/monty/build/Debug/outDebug"
+    }
+  ]
+}

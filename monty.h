@@ -57,6 +57,11 @@ void pint_error(uint line);
 void pop_error(uint line);
 void swap_error(uint line);
 void add_error(uint line);
+void pchar_error(uint line);
+void mod_error(uint line);
+void mul_error(uint line);
+void div_error(uint line);
+void sub_error(uint line);
 
 /*executed function */
 void open_and_read(char **argv);
@@ -77,6 +82,12 @@ void pop_stack(stack_t **top, uint line_number);
 void _swap(stack_t**top, uint line);
 void _add(stack_t **top, uint line_number);
 void _sub(stack_t **top, uint line_number);
-void sub_error(uint line);
+void _div(stack_t **top, uint line_number);
+void _mul(stack_t **top, uint line_number);
+void _mod(stack_t **top, uint line_number);
+void _pchar(stack_t **top, uint line_number);
+void _pstr(stack_t **top, uint line_number);
+void _rotl(stack_t **top, uint line_number);
+void _rotr(stack_t **top, uint line_number);
 
 #endif /* _MONTY_H_ */

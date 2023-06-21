@@ -1,12 +1,5 @@
 #include "monty.h"
 
-/**
- * get_op_code - Retrieves the function pointer associated with a given opcode.
- * @token: The opcode to search for.
- * @line: The line number where the opcode is encountered.
- *
- * Return: Function pointer corresponding to the opcode.
- */
 void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 {
 	int i;
@@ -19,6 +12,15 @@ void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 		{"nop", _nop},
 		{"add", _add},
 		{"sub", _sub},
+		{"div", _div},
+		{"mul", _mul},
+		{"mod", _mod},
+		{"pchar", _pchar},
+		{"pstr", _pstr},
+		{"rotl", _rotl},
+		{"rotr", _rotr},
+		{"#", _nop},
+		{"", _nop},
 		{NULL, NULL}
 	};
 	for (i = 0; operation[i].opcode != NULL; i++)
@@ -31,12 +33,6 @@ void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 	invalidInstruction_error(token, line);
 	return (NULL);
 }
-
-/**
- * _nop - Does nothing.
- * @top: Pointer to the top of the stack.
- * @line: The line number where the NOP opcode is encountered.
- */
 
 void _nop(stack_t **top, uint line)
 {
