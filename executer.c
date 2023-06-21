@@ -8,7 +8,6 @@ extern int number;
  */
 void open_and_read(char **argv)
 {
-	/* prototype from struct instruct */
 	void (*p_func)(stack_t **, uint);
 	FILE *fp;
 	char *buf = NULL, *token = NULL, command[1024];
@@ -34,9 +33,7 @@ void open_and_read(char **argv)
 			if (token == NULL || is_number(token) == -1)
 				not_int_err(line_counter);
 			number = atoi(token);
-			/* p_func will receive the function to execute */
 			p_func = get_op_code(command, line_counter);
-			/* p_func takes place of the function to execute: push, pall, etc*/
 			p_func(&top, line_counter);
 		}
 		else
