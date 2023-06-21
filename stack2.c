@@ -162,6 +162,13 @@ void _pstr(stack_t **top, uint line_number)
 	printf("\n");
 }
 
+/**
+ * _rotl - This function rotates the stack to the top.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
+
 void _rotl(stack_t **top, uint line_number)
 {
 	stack_t *tmp = *top;
@@ -177,6 +184,13 @@ void _rotl(stack_t **top, uint line_number)
 	push_stack(top, line_number);
 	(*top)->n = n;
 }
+
+/**
+ * _rotr - This function rotates the stack to the bottom.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
 
 void _rotr(stack_t **top, uint line_number)
 {
