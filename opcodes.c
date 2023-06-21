@@ -1,5 +1,13 @@
 #include "monty.h"
 
+/**
+ * get_op_code - This function gets the opcode.
+ *
+ * @token: Token to compare.
+ * @line: Line number of the opcode.
+ * Return: Pointer to the function.
+ */
+
 void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 {
 	int i;
@@ -33,6 +41,13 @@ void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 	invalidInstruction_error(token, line);
 	return (NULL);
 }
+
+/**
+ * _nop - This function does nothing.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line: Line number of the opcode.
+ */
 
 void _nop(stack_t **top, uint line)
 {
