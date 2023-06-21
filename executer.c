@@ -1,7 +1,11 @@
 #include "monty.h"
 
-extern int number;
+int number;
 
+/**
+ * open_and_read - Opens and reads the Monty file, executing the commands.
+ * @argv: Command-line arguments.
+ */
 void open_and_read(char **argv)
 {
 	/* prototype from struct instruct */
@@ -16,17 +20,17 @@ void open_and_read(char **argv)
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
 		open_error(argv);
-
-	/* get number of lines */
 	while ((line_size = getline(&buf, &len, fp)) != EOF)
 	{
 		token = strtok(buf, "\n\t\r ");
 		strcpy(command, token);
+
 		if (strcmp(token, "push") == 0)
 		{
 			token = strtok(NULL, "\n\t\r ");
 			if (token == NULL || is_number(token) == -1)
 				not_int_err(line_counter);
+
 			number = atoi(token);
 			/* p_func will receive the function to execute */
 			p_func = get_op_code(command, line_counter);
@@ -46,6 +50,12 @@ void open_and_read(char **argv)
 	free_stack(top);
 }
 
+/**
+ * is_number - Checks if a string represents a valid number.
+ * @token: The string to check.
+ *
+ * Return: 1 if the string is a valid number, -1 otherwise.
+ */
 int is_number(char *token)
 {
 	int i;
@@ -58,5 +68,6 @@ int is_number(char *token)
 		if (token[i] != '-' && isdigit(token[i]) == 0)
 			return (-1);
 	}
+
 	return (1);
 }

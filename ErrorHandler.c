@@ -35,7 +35,8 @@ void error_arguments(void)
 
 
 /**
- * invalidInstruction_error - Handles error when encountering an unknown instruction.
+ * invalidInstruction_error - Handles error
+ * when encountering an unknown instruction.
  * @invalidInstruction: The invalid instruction encountered.
  * @line: The line number where the error occurred.
  */
@@ -46,7 +47,8 @@ void invalidInstruction_error(char *invalidInstruction, uint line)
 }
 
 /**
- * not_int_err - Handles error when "push" instruction is not followed by an integer.
+ * not_int_err - Handles error when "push"
+ * instruction is not followed by an integer.
  * @line: The line number where the error occurred.
  */
 void not_int_err(uint line)

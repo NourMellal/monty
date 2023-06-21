@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * get_op_code - Retrieves the function pointer associated with a given opcode.
+ * @token: The opcode to search for.
+ * @line: The line number where the opcode is encountered.
+ *
+ * Return: Function pointer corresponding to the opcode.
+ */
 void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 {
 	int i;
@@ -24,6 +31,12 @@ void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 	invalidInstruction_error(token, line);
 	return (NULL);
 }
+
+/**
+ * _nop - Does nothing.
+ * @top: Pointer to the top of the stack.
+ * @line: The line number where the NOP opcode is encountered.
+ */
 
 void _nop(stack_t **top, uint line)
 {
