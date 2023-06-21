@@ -6,6 +6,7 @@ void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 	instruction_t operation[] = {
 		{"push", push_stack},
 		{"pall", pall_stack},
+		{"pint", pint_stack},
 		{"nop", _nop},
 		{NULL, NULL}
 	};
