@@ -2,6 +2,13 @@
 
 extern int number;
 
+/**
+ * push_stack - This function pushes an element to the stack.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
+
 void push_stack(stack_t **top, uint line_number)
 {
 	stack_t	*NewNode;
@@ -27,8 +34,14 @@ void push_stack(stack_t **top, uint line_number)
 		(*top)->prev = NewNode;
 		*top = NewNode;
 	}
-
 }
+
+/**
+ * pall_stack - This function prints all the values on the stack.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
 
 void pall_stack(stack_t **top, uint line_number)
 {
@@ -42,6 +55,12 @@ void pall_stack(stack_t **top, uint line_number)
 		tmp = tmp->next;
 	}
 }
+
+/**
+ * free_stack - This function frees the stack.
+ *
+ * @top: Pointer to the top of the stack.
+ */
 
 void free_stack(stack_t *top)
 {
@@ -59,6 +78,13 @@ void free_stack(stack_t *top)
 	free(top);
 }
 
+/**
+ * pint_stack - This function prints the value at the top of the stack.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
+
 void pint_stack(stack_t **top, uint line_number)
 {
 	stack_t *tmp = *top;
@@ -68,6 +94,13 @@ void pint_stack(stack_t **top, uint line_number)
 	else
 		pint_error(line_number);
 }
+
+/**
+ * pop_stack - This function removes the top element of the stack.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
 
 void pop_stack(stack_t **top, uint line_number)
 {
