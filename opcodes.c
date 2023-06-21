@@ -8,6 +8,7 @@ void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 		{"pall", pall_stack},
 		{"pint", pint_stack},
 		{"pop", pop_stack},
+		{"swap", _swap},
 		{"nop", _nop},
 		{NULL, NULL}
 	};

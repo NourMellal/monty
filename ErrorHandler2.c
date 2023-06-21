@@ -11,3 +11,9 @@ void pop_error(uint line)
 	fprintf(stderr, "L%u: can't pop an empty stack\n", line);
 	exit(EXIT_FAILURE);
 }
+
+void swap_error(uint line)
+{
+	fprintf(stderr, "L%u: can't swap, stack too short\n", line);
+	exit(EXIT_FAILURE);
+}

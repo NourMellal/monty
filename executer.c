@@ -6,7 +6,6 @@ void open_and_read(char **argv)
 {
 	/* prototype from struct instruct */
 	void (*p_func)(stack_t **, uint);
-
 	FILE *fp;
 	char *buf = NULL, *token = NULL, command[1024];
 	size_t len = 0;
@@ -15,7 +14,6 @@ void open_and_read(char **argv)
 	stack_t *top = NULL;
 
 	fp = fopen(argv[1], "r");
-
 	if (fp == NULL)
 		open_error(argv);
 
