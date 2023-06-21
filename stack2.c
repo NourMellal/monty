@@ -98,4 +98,3 @@ void _mul(stack_t **top, uint line_number)
 	*top = tmp->next;
 	free(tmp);
 }
-
