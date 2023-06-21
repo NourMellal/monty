@@ -68,3 +68,10 @@ void pint_stack(stack_t **top, uint line_number)
 	else
 		pint_error(line_number);
 }
+
+void pop_stack(stack_t **top, uint line_number)
+{
+	if (*top == NULL)
+		pop_error(line_number);
+	*top = (*top)->next;
+}

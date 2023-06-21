@@ -53,6 +53,7 @@ void malloc_error(void);
 
 /* error_handler2 functions */
 void pint_error(uint line);
+void pop_error(uint line);
 
 /*executed function */
 void open_and_read(char **argv);
@@ -67,6 +68,6 @@ void push_stack(stack_t **top, uint line_number);
 void pall_stack(stack_t **top, uint line_number);
 void free_stack(stack_t *top);
 void pint_stack(stack_t **top, uint line_number);
-
+void pop_stack(stack_t **top, uint line_number);
 
 #endif /* _MONTY_H_ */
