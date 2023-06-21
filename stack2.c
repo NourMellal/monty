@@ -99,6 +99,13 @@ void _mul(stack_t **top, uint line_number)
 	free(tmp);
 }
 
+/**
+ * _mod - This function mods the top two elements of the stack.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
+
 void _mod(stack_t **top, uint line_number)
 {
 	stack_t *tmp = *top;
@@ -114,6 +121,13 @@ void _mod(stack_t **top, uint line_number)
 	free(tmp);
 }
 
+/**
+ * _pchar - This function prints the char at the top of the stack.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
+
 void _pchar(stack_t **top, uint line_number)
 {
 	stack_t *tmp = *top;
@@ -126,6 +140,13 @@ void _pchar(stack_t **top, uint line_number)
 
 	printf("%c\n", tmp->n);
 }
+
+/**
+ * _pstr - This function prints the string starting at the top of the stack.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
 
 void _pstr(stack_t **top, uint line_number)
 {
