@@ -58,9 +58,12 @@ void pop_error(uint line);
 void swap_error(uint line);
 void add_error(uint line);
 void pchar_error(uint line);
+void pchar_error2(uint line);
 void mod_error(uint line);
+void mod_error2(uint line);
 void mul_error(uint line);
 void div_error(uint line);
+void div_error2(uint line);
 void sub_error(uint line);
 
 /*executed function */
