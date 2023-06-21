@@ -25,6 +25,6 @@ void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 
 void _nop(stack_t **top, uint line)
 {
-	(void)top;
-	(void)line;
+	(void) top;
+	(void) line;
 }
