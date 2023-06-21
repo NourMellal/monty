@@ -130,15 +130,18 @@ void _mod(stack_t **top, uint line_number)
 
 void _pchar(stack_t **top, uint line_number)
 {
-	stack_t *tmp = *top;
+	int ascci_num;
 
-	if (tmp == NULL)
+	if (*top == NULL)
 		pchar_error(line_number);
 
-	if (tmp->n < 0 || tmp->n > 127)
+	ascci_num = (*top)->n;
+
+	if (ascci_num < 0 || ascci_num > 127)
 		pchar_error2(line_number);
 
-	printf("%c\n", tmp->n);
+	putchar(ascci_num);
+	putchar('\n');
 }
 
 /**
