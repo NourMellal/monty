@@ -9,7 +9,7 @@ void open_and_read(char **argv)
 	FILE *fp;
 	char *buf = NULL, *token = NULL, command[1024];
 	size_t len = 0;
-	size_t line_size;
+	int line_size;
 	uint line_counter = 1;
 	stack_t *top = NULL;
 
