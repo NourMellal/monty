@@ -1,5 +1,13 @@
 #include "monty.h"
 
+/**
+ * _swap - This function swaps the top two elements of the stack.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
+
+
 void _swap(stack_t **top, uint line_number)
 {
 	int num;
@@ -11,6 +19,13 @@ void _swap(stack_t **top, uint line_number)
 	(*top)->n = (*top)->next->n;
 	(*top)->next->n = num;
 }
+
+/**
+ * _add - This function adds the top two elements of the stack.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
 
 void _add(stack_t **top, uint line_number)
 {
@@ -24,6 +39,13 @@ void _add(stack_t **top, uint line_number)
 	pop_stack(top, line_number);
 }
 
+/**
+ * _sub - This function subtracts the top two elements of the stack.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
+
 void _sub(stack_t **top, uint line_number)
 {
 	stack_t *tmp;
@@ -35,6 +57,13 @@ void _sub(stack_t **top, uint line_number)
 	tmp->n -= (*top)->n;
 	pop_stack(top, line_number);
 }
+
+/**
+ * _div - This function divides the top two elements of the stack.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
 
 void _div(stack_t **top, uint line_number)
 {
@@ -50,6 +79,13 @@ void _div(stack_t **top, uint line_number)
 	*top = tmp->next;
 	free(tmp);
 }
+
+/**
+ * _mul - This function multiplies the top two elements of the stack.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
 
 void _mul(stack_t **top, uint line_number)
 {
