@@ -1,6 +1,5 @@
 #include "monty.h"
-
-extern int number;
+int number;
 
 /**
  * push_stack - This function pushes an element to the stack.
