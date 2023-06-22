@@ -89,12 +89,12 @@ void _div(stack_t **top, uint line_number)
 
 void _mul(stack_t **top, uint line_number)
 {
-	stack_t *tmp = *top;
+	stack_t *tmp;
 
-	if (tmp == NULL || tmp->next == NULL)
+	if (*top == NULL || (*top)->next == NULL)
 		mul_error(line_number);
 
-	tmp->next->n = tmp->next->n * tmp->n;
-	*top = tmp->next;
-	free(tmp);
+	tmp = (*top)->next;
+	tmp->n *= (*top)->n;
+	pop_stack(top, line_number);
 }
