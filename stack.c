@@ -94,9 +94,9 @@ void free_stack(stack_t *top)
  */
 void _stack(stack_t **top, uint line_number)
 {
-    (void) top;
-    (void) line_number;
-    data_structure_type = 0;
+	(void) top;
+	(void) line_number;
+	data_structure_type = 0;
 }
 
 /**
@@ -106,7 +106,7 @@ void _stack(stack_t **top, uint line_number)
  */
 void _queue(stack_t **top, uint line_number)
 {
-    (void) top;
-    (void) line_number;
-    data_structure_type = 1;
+	(void) top;
+	(void) line_number;
+	data_structure_type = 1;
 }
