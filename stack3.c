@@ -33,16 +33,26 @@ void _pchar(stack_t **top, uint line_number)
 
 void _pstr(stack_t **top, uint line_number)
 {
-	stack_t *tmp = *top;
+	stack_t *tmp;
+	int ascii_num;
 
 	(void)line_number;
-
-	while (tmp != NULL && tmp->n != 0 && (tmp->n >= 0 && tmp->n <= 127))
+	if (*top == NULL)
 	{
-		printf("%c", tmp->n);
+		putchar('\n');
+		return;
+	}
+	tmp = *top;
+	while (tmp != NULL)
+	{
+		ascii_num = tmp->n;
+
+		if (ascii_num <= 0 || ascii_num > 127)
+			break;
+		putchar(ascii_num);
 		tmp = tmp->next;
 	}
-	printf("\n");
+	putchar('\n');
 }
 
 
