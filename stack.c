@@ -1,4 +1,6 @@
 #include "monty.h"
+
+int data_structure_type = 0; /* 0 for stack, 1 for queue */
 int number;
 
 /**
@@ -10,7 +12,7 @@ int number;
 
 void push_stack(stack_t **top, uint line_number)
 {
-	stack_t	*NewNode;
+	stack_t	*NewNode, *last;
 
 	(void)line_number;
 	NewNode = malloc(sizeof(stack_t));
@@ -20,20 +22,28 @@ void push_stack(stack_t **top, uint line_number)
 
 	NewNode->n = number;
 	NewNode->prev = NULL;
-
+	NewNode->next = NULL;
 
 	if (*top == NULL) /* Validate if empty list*/
 	{
-		NewNode->next = NULL;
 		*top = NewNode;
 	}
-	else /* if is not empty list */
+	else if (data_structure_type == 1) /* If it's a queue */
+	{
+		last = *top;
+		while (last->next != NULL) /* Go to the end */
+			last = last->next;
+		NewNode->prev = last;
+		last->next = NewNode;
+	}
+	else /* if it's not empty list and it's a stack */
 	{
 		NewNode->next = *top;
 		(*top)->prev = NewNode;
 		*top = NewNode;
 	}
 }
+
 
 /**
  * pall_stack - This function prints all the values on the stack.
@@ -78,38 +88,25 @@ void free_stack(stack_t *top)
 }
 
 /**
- * pint_stack - This function prints the value at the top of the stack.
- *
+ * _stack - Sets the format of the data to a stack (LIFO).
  * @top: Pointer to the top of the stack.
  * @line_number: Line number of the opcode.
  */
-
-void pint_stack(stack_t **top, uint line_number)
+void _stack(stack_t **top, uint line_number)
 {
-	stack_t *tmp = *top;
-
-	if (tmp != NULL)
-		printf("%d\n", tmp->n);
-	else
-		pint_error(line_number);
+    (void) top;
+    (void) line_number;
+    data_structure_type = 0;
 }
 
 /**
- * pop_stack - This function removes the top element of the stack.
- *
+ * _queue - Sets the format of the data to a queue (FIFO).
  * @top: Pointer to the top of the stack.
  * @line_number: Line number of the opcode.
  */
-
-void pop_stack(stack_t **top, uint line_number)
+void _queue(stack_t **top, uint line_number)
 {
-	stack_t *tmp;
-
-	tmp = *top;
-	if (*top == NULL)
-		pop_error(line_number);
-
-	tmp = tmp->next;
-	free(*top);
-	*top = tmp;
+    (void) top;
+    (void) line_number;
+    data_structure_type = 1;
 }

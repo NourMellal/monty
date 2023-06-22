@@ -29,6 +29,8 @@ void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 		{"rotr", _rotr},
 		{"#", _nop},
 		{"", _nop},
+		{"stack", _stack},
+		{"queue", _queue},
 		{NULL, NULL}
 	};
 	for (i = 0; operation[i].opcode != NULL; i++)

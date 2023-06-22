@@ -81,6 +81,8 @@ void pall_stack(stack_t **top, uint line_number);
 void free_stack(stack_t *top);
 void pint_stack(stack_t **top, uint line_number);
 void pop_stack(stack_t **top, uint line_number);
+void _stack(stack_t **top, uint line_number);
+void _queue(stack_t **top, uint line_number);
 
 /* stack operations */
 void _swap(stack_t**top, uint line);
