@@ -1,6 +1,7 @@
 #include "monty.h"
 
 extern int number;
+#define DELIM "\n\t\r "
 
 /**
  * open_and_read - Opens and reads the Monty file, executing the commands.
@@ -21,7 +22,7 @@ void open_and_read(char **argv)
 		open_error(argv);
 	while ((line_size = getline(&buf, &len, fp)) != EOF)
 	{
-		token = strtok(buf, "\n\t\r ");
+		token = strtok(buf, DELIM);
 		if (token == NULL)
 			continue;
 		strcpy(command, token);
@@ -29,7 +30,7 @@ void open_and_read(char **argv)
 			continue;
 		if (strcmp(token, "push") == 0)
 		{
-			token = strtok(NULL, "\n\t\r ");
+			token = strtok(NULL, DELIM);
 			if (token == NULL || is_number(token) == -1)
 				not_int_err(line_counter);
 			number = atoi(token);
