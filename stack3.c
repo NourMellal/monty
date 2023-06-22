@@ -55,18 +55,26 @@ void _pstr(stack_t **top, uint line_number)
 
 void _rotl(stack_t **top, uint line_number)
 {
-	stack_t *tmp = *top;
-	int n;
+	stack_t *new_top, *tmp, *new_last;
 
 	(void)line_number;
 
-	if (tmp == NULL || tmp->next == NULL)
+	if (*top == NULL || (*top != NULL && (*top)->next == NULL))
 		return;
 
-	n = tmp->n;
-	pop_stack(top, line_number);
-	push_stack(top, line_number);
-	(*top)->n = n;
+	new_last = *top;
+	tmp = *top;
+
+	while (tmp->next)
+		tmp = tmp->next;
+
+	new_top = (*top)->next;
+	new_last->next = NULL;
+	new_last->prev = tmp;
+	tmp->next = new_last;
+	new_top->prev = NULL;
+	*top = new_top;
+
 }
 
 /**
